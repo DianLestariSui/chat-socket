@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="Share">
+<head>
+    <meta charset="utf-8" />
+
+    <title>
+        Preloading Images In AngularJS With Promises
+    </title>
+</head>
+<body ng-controller="appCtrl">
+
+    <!-- BEGIN: Results View. -->
+    <div>
+
+    </div>
+    <!-- END: Results View. -->
+
+
+
+<!-- Load scripts. -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script type="text/javascript">
+    var app = angular.module( "share", [] );
+
+    app.controller('appCtrl',function ($scope,$http) {
+        $scope.fshare=[
+            {
+                'images':'http://s3.india.com/travel/wp-content/uploads/2015/06/Main1.jpg',
+                'avatar':'https://pbs.twimg.com/profile_images/831993825635745796/HnVmB0-k.jpg'
+                'name':'Dian',
+                'expired':'2 days ago'
+            },
+            {
+                'images':'https://ucfmedlibrary.files.wordpress.com/2017/01/hokulea_courtesy_monte_costa.png?w=400&h=413',
+                'avatar':'https://pbs.twimg.com/profile_images/831993825635745796/HnVmB0-k.jpg'
+                'name':'Dian',
+                'expired':'3 days ago'
+            }
+        ]
+    });
+</script>
+
+</body>
+</html>

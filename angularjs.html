@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Pegenalan Dan Cara Menggunakan AngularJS | MalasNgoding.com</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<h1>Pegenalan Dan Cara Menggunakan AngularJS | MalasNgoding.com</h1>
+{{ " Tutorial angularJS | MalasNgoding.com " }}
+<br/>
+<br/>
+{{ 25 + 25 }}
+
+<img
+    ng-repeat="src in imageLocations"
+    ng-src="{{ src }}"
+    style="width: 100px ; margin-right: 10px ;"
+/>
+<!-- Load scripts. -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+    // Create an application module for our demo.
+    var app = angular.module( "Demo", [] );
+    // -------------------------------------------------- //
+    // -------------------------------------------------- //
+    // I control the root of the application.
+    app.controller(
+        "AppController",
+        function( $scope, preloader ) {
+            // I keep track of the state of the loading images.
+            $scope.isLoading = true;
+            $scope.isSuccessful = false;
+            $scope.percentLoaded = 0;
+            // I am the image SRC values to preload and display./
+            // --
+            // NOTE: "cache" attribute is to prevent images from caching in the
+            // browser (for the sake of the demo).
+            $scope.imageLocations = [
+                ( "http://fotato.net/assets/new_fotato/images/about-img.jpg" ),
+                ( "https://s-media-cache-ak0.pinimg.com/originals/e1/47/58/e14758f34c520b30d1f93bd2f4c2f2c3.jpg" ),
+//                ( "http://fotato.net/assets/new_fotato/images/about-img.jpg" ),
+//                ( "./ahhh.jpg?v=4&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=5&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=6&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=7&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=8&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=9&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=10&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=11&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=12&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=13&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=14&cache=" + ( new Date() ).getTime() ),
+//                ( "./ahhh.jpg?v=15&cache=" + ( new Date() ).getTime() ),
+            ];
+            // Preload the images; then, update display when returned.
+//            preloader.preloadImages( $scope.imageLocations ).then(
+//                function handleResolve( imageLocations ) {
+//                    // Loading was successful.
+//                    $scope.isLoading = false;
+//                    $scope.isSuccessful = true;
+//                    console.info( "Preload Successful" );
+//                },
+//                function handleReject( imageLocation ) {
+//                    // Loading failed on at least one image.
+//                    $scope.isLoading = false;
+//                    $scope.isSuccessful = false;
+//                    console.error( "Image Failed", imageLocation );
+//                    console.info( "Preload Failure" );
+//                },
+//                function handleNotify( event ) {
+//                    $scope.percentLoaded = event.percent;
+//                    console.info( "Percent loaded:", event.percent );
+//                }
+//            );
+        }
+    );
+
+</script>
+</body>
+</html>

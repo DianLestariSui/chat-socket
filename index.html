@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socket io node js</title>
+</head>
+<style>
+    form{
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        background-color: grey;
+        padding: 20px;
+    }
+    #nama_user{
+        float: left; width: 20%; height: 30px; border: none;
+    }
+    #text_box{
+        float: left; width: 40%; height: 30px; border: none; margin-left: 10px;
+    }
+    button{
+        float: left; width: 20%; height: 33px;
+    }
+    li{
+        padding: 5px;
+    }
+    li:nth-child(even){
+        background-color: #333;
+        color: white;
+    }
+    li:nth-child(add){
+
+    }
+</style>
+<body>
+    <ul id="messages"></ul>
+
+    <form class="" action="index.html" method="post">
+        <input type="text" id="nama_user" placeholder="Nama kamu">
+        <input type="text" id="text_box" placeholder="Chat kamu"> <button>kirim</button>
+    </form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var socket = io();
+    var username = '';
+    $('form').submit(function () {
+        username = $('#nama_user').val();
+        socket.emit('newMessage', username + ' '+ $('#text_box').val());
+        $('#text_box').val('');
+        return false;
+    });
+
+    // untuk menampilkan frontend
+    socket.on('newMessage', function (msg) {
+        $('#messages').append($('<li>').text( msg + ' ||pada:' + Date()));
+    });
+</script>
+</body>
+</html>

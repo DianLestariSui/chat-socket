@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scope Data</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="js/aplikasi.js"></script>
+</head>
+
+<body ng-app="MyApp">
+<div ng-controller="MainController">
+    <div>
+        {{judul}}
+    </div>
+    <table border="1">
+        <tr>
+            <td>judul</td>
+            <td>penulis</td>
+            <td>images</td>
+            <td>reting</td>
+        </tr>
+        <tr ng-repeat="b in books">
+            <td>{{b.judul}}</td>
+            <td>{{b.penulis}}</td>
+            <td>
+                <img style="width: 100px ; margin-right: 10px ;" ng-src="{{ b.images }}">
+            </td>
+            <td class="number">{{b.rating}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
