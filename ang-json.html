@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+<head>
+    <title>Scope Data</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<div ng-controller="Hello">
+    <p>The ID is {{greeting.user_data["avatar"]}}</p>
+    <!--<p>The content is {{greeting.content}}</p>-->
+</div>
+</body>
+<script>
+    angular.module('demo', [])
+        .controller('Hello', function($scope, $http) {
+            $http.get('api.json').
+            then(function(response) {
+                $scope.greeting = response.data;
+            });
+        });
+</script>
+</html>
